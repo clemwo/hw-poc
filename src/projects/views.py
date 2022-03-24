@@ -18,5 +18,6 @@ def project_list_view(request):
 
     return render(request, "projects/home.html", context)
 
-def project_create(request):
+
+def project_create_view(request):
     return render(request, 'projects/create_project.html')

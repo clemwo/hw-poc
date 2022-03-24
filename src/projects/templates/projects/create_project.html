@@ -10,4 +10,33 @@ Projekt vorschlagen
 
 {% block content %}
 <p>Sie sind eine interessierte wohltätige Organisation und haben eine konkrete Projektidee? Schlagen Sie diese hier vor!</p>
+
+    <form method="post" action="/contact-form">
+        {% if messages %}
+            {% for msg in messages %}
+            <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Name der Organisation</th>
+                <td><input type="text" name="full_name" /></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="email" /></td>
+            </tr>
+            <tr>
+                <th>Projektbeschreibung</th>
+                <td>
+                    <textarea name="message"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
 {% endblock %}
