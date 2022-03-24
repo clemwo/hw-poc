@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # app for projects
     'projects',
+    # app for registration
+    'registration',
 ]
 
 MIDDLEWARE = [

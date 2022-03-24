@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 from projects.views import project_list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # accessing the URL projects calls the function project_list_view
-    path('projects/', project_list_view)
+    path('projects/', include('projects.urls')),
+    # point the registration subdomain to the urls file in registration
+    # using include django concatenates the urls in registration.urls with the beginning string 'registration'
+    path('registration/', include('registration.urls')),
 ]
