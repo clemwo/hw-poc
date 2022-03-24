@@ -12,14 +12,27 @@
 
     <title>
         {% block title %}
+        Warning: No title defined
         {% endblock %}
     </title>
 </head>
 
-<body>
-    {% block content %}
+<body class="d-flex flex-column min-vh-100">
+    
+    {% include 'navbar.html' %}
 
+    <h1>
+        {% block content_title %}
+        Platzhalter Titel für diese Seite
+        {% endblock %}
+    </h1>
+
+    {% block content %}
+    Warning: No content defined
     {% endblock %}
+
+    {% include 'footer.html' %}
+
 </body>
 
 </html>

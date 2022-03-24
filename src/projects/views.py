@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Project
@@ -15,4 +16,7 @@ def project_list_view(request):
         'project_objects': project_objects
     }
 
-    return render(request, "projects/index.html", context)
+    return render(request, "projects/home.html", context)
+
+def project_create(request):
+    return render(request, 'projects/create_project.html')
