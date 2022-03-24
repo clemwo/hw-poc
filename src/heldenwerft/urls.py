@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from projects.views import project_list_view
+from heldenwerft import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # define the URL for the landing page
+    path('', views.home_view, name='home_index'),
+
     # accessing the URL projects calls the function project_list_view
     path('projects/', include('projects.urls')),
     # point the registration subdomain to the urls file in registration
