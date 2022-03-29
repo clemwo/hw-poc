@@ -12,12 +12,11 @@ from .create_project_form import CreateProjectForm
 # List all the posts
 def project_list_view(request):
     # get all the project objects
-    project_objects = Project.objects.all()
+    project_objects = Project.objects.filter(status=Project.ACCEPTED)
     # create the context to be passed down to render
     context = {
         'project_objects': project_objects
     }
-
     return render(request, "projects/home.html", context)
 
 
