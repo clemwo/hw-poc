@@ -9,5 +9,9 @@
 {% endblock %}
 
 {% block content %}
-{{ project_object.description }}
+<p>Organisation: {{ project_object.organisation }}<p>
+<p>Beschreibung: {{ project_object.description }}<p>
+<p>E-Mail: {{ project_object.email }}
+<p>Telefonnummer: {{ project_object.phone_number }}
+<p>Votes: 0</p>
 {% endblock %}
