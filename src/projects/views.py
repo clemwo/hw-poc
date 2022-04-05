@@ -29,3 +29,11 @@ def create_project_view(request):
     else:
         create_project_form = CreateProjectForm()
     return render(request, 'projects/create_project.html', {'form': create_project_form})
+
+
+def details(request, project_id):
+    project = Project.objects.get(pk=project_id)
+    context = {
+        'project_object': project
+    }
+    return render(request, 'projects/details.html', context)

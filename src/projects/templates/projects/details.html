@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ project_object.title }}
+{% endblock %}
+
+{% block content_title %}
+{{ project_object.title }}
+{% endblock %}
+
+{% block content %}
+{{ project_object.description }}
+{% endblock %}

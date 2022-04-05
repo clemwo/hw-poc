@@ -10,7 +10,11 @@
 
 {% block content %}
 {% for project in project_objects %}
+
 <h2>{{ project.title }}</h2>
 <p>{{ project.description }}</p>
+
+<a href="{{ project.id }}">Details</a>
+
 {% endfor %}
 {% endblock %}
