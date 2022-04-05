@@ -31,8 +31,8 @@ def create_project_view(request):
     return render(request, 'projects/create_project.html', {'form': create_project_form})
 
 
-def details(request, project_id):
-    project = Project.objects.get(pk=project_id)
+def details(request, slug, pk):
+    project = Project.objects.get(pk=pk)
     context = {
         'project_object': project
     }

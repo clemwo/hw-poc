@@ -14,7 +14,7 @@
 <h2>{{ project.title }}</h2>
 <p>{{ project.description }}</p>
 
-<a href="{{ project.id }}">Details</a>
+<a href="{{ project.slug }}/{{ project.id }}">Details</a>
 
 {% endfor %}
 {% endblock %}
