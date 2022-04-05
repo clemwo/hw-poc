@@ -8,6 +8,7 @@ class CreateProjectForm(forms.ModelForm):
         model = Project
         fields = (
             'title',
+            'organisation',
             'description',
             'phone_number',
             'email',
