@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Projekt erstellen
+{% endblock %}
+
+{% block content_title %}
+Projekt vorschlagen
+{% endblock %}
+
+{% block content %}
+<p>Sie sind eine interessierte wohltätige Organisation und haben eine konkrete Projektidee? Schlagen Sie diese hier vor!</p>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}
