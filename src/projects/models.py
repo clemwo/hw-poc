@@ -20,6 +20,7 @@ class Project(models.Model):
     ]
 
     title = models.CharField(max_length=120)
+    organisation = models.CharField(max_length=120, default="")
     description = models.TextField()
     email = models.EmailField(max_length=254, null=True)
     phone_number = models.CharField(max_length=128, null=True)
