@@ -1,13 +1,7 @@
-from django.http import HttpResponse
+from django.http import Http404, HttpResponseNotFound
 from django.shortcuts import render
-
 from .models import Project
-
 from .create_project_form import CreateProjectForm
-
-# Create your views here.
-
-# CRUD Views
 
 # List all the posts
 def project_list_view(request):
@@ -29,3 +23,16 @@ def create_project_view(request):
     else:
         create_project_form = CreateProjectForm()
     return render(request, 'projects/create_project.html', {'form': create_project_form})
+
+
+def details(request, slug, pk):
+    project = Project.objects.get(pk=pk)
+    print(slug)
+    print(project.slug)
+
+    if not slug == project.slug:
+        return HttpResponseNotFound('<h1>Seite nicht gefunden.</h1> Bist du dir sicher, dass die URL richtig ist?')
+    context = {
+        'project_object': project
+    }
+    return render(request, 'projects/details.html', context)

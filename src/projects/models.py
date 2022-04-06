@@ -1,5 +1,5 @@
-from pydoc import describe
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 class Project(models.Model):
@@ -20,6 +20,7 @@ class Project(models.Model):
     ]
 
     title = models.CharField(max_length=120)
+    organisation = models.CharField(max_length=120, default="")
     description = models.TextField()
     email = models.EmailField(max_length=254, null=True)
     phone_number = models.CharField(max_length=128, null=True)
@@ -27,6 +28,12 @@ class Project(models.Model):
         max_length=128,
         choices=PROJECT_STATUS_CHOICES, 
         default=SUBMITTED)
+    slug = models.SlugField(unique=True)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Project, self).save(*args, **kwargs)
     
     def __str__(self):
         return self.title
