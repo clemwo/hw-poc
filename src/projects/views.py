@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Project
 from .create_project_form import CreateProjectForm
@@ -20,6 +20,7 @@ def create_project_view(request):
         if create_project_form.is_valid():
             project = create_project_form.save(commit=False)
             project.save()
+            return HttpResponseRedirect('')
     else:
         create_project_form = CreateProjectForm()
     return render(request, 'projects/create_project.html', {'form': create_project_form})
